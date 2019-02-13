@@ -25,10 +25,20 @@ public class KnightBoard{
   public boolean solve(int startRow, int startCol){
     if(startRow<0 || startCol<0) throw new IllegalArgumentException();
     if(!Arrays.deepEquals(board, new int[board.length][board[0].length])) throw new IllegalStateException();
+    countMoves();
     return solveH(startRow,startCol, 0);
   }
 
+  private void countMoves(){
+    if(board[0].length>4){
+      for (int[] row:board) Arrays.fill(row, 3, row.length-2, 8); //excluding 2 edges, fill with 8
+    }
+    for(int r=0;r<board.length;r++){for(int c=0;c<board[r].length;c++){
+      if(r>2&&r<board.length-2 && c>2&&c<board[r].length-2) board[r][c] = 8;
+    }}
+  }
+
   private boolean solveH(int row ,int col, int level){
-    
+
   }
 }
