@@ -1,8 +1,10 @@
+import java.util.Arrays;
 public class KnightBoard{
   int[][] board;
 
+  //@throws IllegalArgumentException when either parameter is negative.
   public KnightBoard(int startingRows,int startingCols){
-    if(startingRows<0 || startingCols<0) throw new IllegalArgumentException();
+    if(startingRows<=0 || startingCols<=0) throw new IllegalArgumentException();
     board = new int[startingRows][startingCols];
   }
 
@@ -17,13 +19,16 @@ public class KnightBoard{
     }
     return out;
   }
-/*see format for toString below
-blank boards display 0's as underscores
-you get a blank board if you never called solve or
-when there is no solution
 
-@throws IllegalStateException when the board contains non-zero values.
-@throws IllegalArgumentException when either parameter is negative
- or out of bounds.
-  */
+  //@throws IllegalStateException when the board contains non-zero values.
+  //@throws IllegalArgumentException when either parameter is negative or out of bounds.
+  public boolean solve(int startRow, int startCol){
+    if(startRow<0 || startCol<0) throw new IllegalArgumentException();
+    if(!Arrays.deepEquals(board, new int[board.length][board[0].length])) throw new IllegalStateException();
+    return solveH(startRow,startCol, 0);
+  }
+
+  private boolean solveH(int row ,int col, int level){
+    
+  }
 }
