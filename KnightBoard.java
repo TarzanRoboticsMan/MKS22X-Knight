@@ -30,9 +30,9 @@ public class KnightBoard{
   }
 
   private void countMoves(){
-    if(board[0].length>4){
+    /*if(board[0].length>4){
       for (int[] row:board) Arrays.fill(row, 3, row.length-2, 8); //excluding 2 edges, fill with 8
-    }
+    }*/
     for(int r=0;r<board.length;r++){for(int c=0;c<board[r].length;c++){
       if(r>2&&r<board.length-2 && c>2&&c<board[r].length-2) board[r][c] = 8;
     }}
